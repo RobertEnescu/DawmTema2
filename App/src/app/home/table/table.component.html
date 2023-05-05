@@ -1,0 +1,47 @@
+<div>
+  <div>
+    <button class="add-button" (click)="showAddModal()">
+      Add
+      <span class="i" nz-icon nzType="plus-circle" nzTheme="outline"></span>
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <nz-table #table [nzData]="items" [nzLoading]="loading" [nzBordered]="true">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of table.data">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.price }}</td>
+          <td>
+            <button (click)="showEditModal(item)">
+              <span nz-icon nzType="edit" nzTheme="outline"></span>
+            </button>
+            <button (click)="deleteItem(item)">
+              <span nz-icon nzType="delete" nzTheme="outline"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <nz-pagination
+      [nzTotal]="total"
+      [nzPageSize]="pageSize"
+      [nzPageIndex]="pageIndex"
+      (nzPageIndexChange)="
+        handleQueryParams({ pageSize: pageSize, pageIndex: $event })
+      "
+    ></nz-pagination>
+  </div>
+</div>

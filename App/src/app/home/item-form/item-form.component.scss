@@ -1,0 +1,7 @@
+::ng-deep .ant-modal-content .ant-form-item-control-input {
+  display: flex;
+}
+
+::ng-deep .ant-modal-content .ant-form-item-control-input > * {
+  flex: 1;
+}

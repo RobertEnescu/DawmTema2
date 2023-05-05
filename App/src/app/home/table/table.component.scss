@@ -1,0 +1,8 @@
+::ng-deep .ant-pagination {
+  display: none;
+}
+
+.ant-pagination {
+  display: flex;
+  justify-content: flex-end;
+}
